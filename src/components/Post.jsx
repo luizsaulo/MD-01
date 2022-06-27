@@ -19,14 +19,7 @@ export default function Post() {
         </header>
 
         <div className={styles.content}>
-            <p>Whasupp y´all</p>
-            <p>Today I´m taking one more step further on my programming journey. It´s a new front end course</p>
-            <p><a href=''>https://github.com/luizsaulo</a></p>
-            <p>
-                <a href=''>#rocketseat</a> {' '}
-                <a href=''>#ignite</a>{' '}
-                <a href=''>#oneMoreStep</a>
-            </p>
+            
         </div>
 
         <form className={styles.commentForm}>
