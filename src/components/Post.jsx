@@ -1,4 +1,5 @@
 import React from 'react'
+import Avatar from './Avatar';
 import Comment from './Comment';
 import styles from './Post.module.css';
 
@@ -7,7 +8,7 @@ export default function Post() {
     <article className={styles.post}>
         <header>
             <div className={styles.author}>
-                <img className={styles.avatar} src='https://github.com/luizsaulo.png' />
+                <Avatar src='https://github.com/luizsaulo.png' />
                 <div className={styles.authorInfo}>
                     <strong>Luiz Saulo</strong>
                     <span>Web Developer</span>
