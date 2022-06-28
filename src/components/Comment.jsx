@@ -3,7 +3,7 @@ import React from 'react'
 import Avatar from './Avatar';
 import styles from './Comment.module.css';
 
-export default function Comment() {
+export default function Comment({ content }) {
   return (
     
     <div className={styles.comment}>
@@ -22,7 +22,7 @@ export default function Comment() {
             </button>
           </header>
 
-          <p>Muito bom, parabéns!</p>
+          <p>{content}</p>
         </div>
         <footer>
           <button>
