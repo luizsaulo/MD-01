@@ -48,7 +48,7 @@ function App() {
           {posts.map(post=> {
             return (
               <Post 
-                autor={post.author}
+                author={post.author}
                 content={post.content}
                 publishedIn={post.publishedIn}
               />
