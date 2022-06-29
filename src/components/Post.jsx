@@ -31,7 +31,13 @@ export default function Post({ author, publishedIn, content }) {
     }
 
     function handleNewCommentChange() {
+        event.target.setCustomValidity(''); // comando para zerar o campo o deixando em branco após ele ser preenchido e enviado
         setNewCommentText(event.target.value);
+    }
+
+    function handleNewCommentInvalid() {
+        event.target.setCustomValidity('Este campo é obrigatório!');
+        // comando para avisar que o campo precisa ser preenchido
     }
 
     function deleteComment(commentToDelete) {
@@ -40,6 +46,8 @@ export default function Post({ author, publishedIn, content }) {
         })
         setComments(commentsWithoutDeletedOne);
     }
+
+    const isNewCommentEmpty = newCommentText.length == 0;
 
   return (
     <article className={styles.post}>
@@ -70,15 +78,20 @@ export default function Post({ author, publishedIn, content }) {
 
         <form onSubmit={handleCreateNewComment} className={styles.commentForm}>
             <strong>Deixe seu feedback</strong>
+
             <textarea 
             name='comment'
             placeholder='Deixe um comentário'
             value={newCommentText}
             onChange={handleNewCommentChange}
+            onInvalid={handleNewCommentInvalid}
+            required  //comando para deixar obrigatório o preenchumento do campo para que ele seja submetido
             />
 
             <footer>
-                <button type='submit'>Publicar</button>
+                <button type='submit' disabled={isNewCommentEmpty}>
+                    Publicar
+                </button>
             </footer>
         </form>
 
