@@ -3,7 +3,11 @@ import React from 'react'
 import Avatar from './Avatar';
 import styles from './Comment.module.css';
 
-export default function Comment({ content }) {
+export default function Comment({ content, onDeleteComment }) {
+  function handleDeleteComment() {
+    onDeleteComment(content);
+  }
+
   return (
     
     <div className={styles.comment}>
@@ -17,7 +21,7 @@ export default function Comment({ content }) {
             <time title='June 27th 2022 at 11:01h' dateTime='2022-06-27'>Publicado há cerca de 1h</time>
             </div>
 
-            <button title='Deletar comentário'>
+            <button onClick={handleDeleteComment} title='Deletar comentário'>
               <Trash size={24} />
             </button>
           </header>
