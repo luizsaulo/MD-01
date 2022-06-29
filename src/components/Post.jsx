@@ -53,11 +53,12 @@ export default function Post({ author, publishedIn, content }) {
         <div className={styles.content}>
             {content.map(line => {
                 if(line.type == 'paragraph'){
-                    return <p>{line.content}</p>;
+                    return <p key={line.content}>{line.content}</p>;
                 } else if (line.type == 'link') {
-                    return <p><a href='#'>{line.content}</a></p>;
+                    return <p key={line.content}><a href='#'>{line.content}</a></p>;
                 }
             })}
+            {/* o key irá ser colocado no primeiro elemento que aparecer no retorno de um map */}
         </div>
 
         <form onSubmit={handleCreateNewComment} className={styles.commentForm}>
@@ -76,7 +77,7 @@ export default function Post({ author, publishedIn, content }) {
 
         <div className={styles.commentList}>
             {comments.map(comment => {
-                return <Comment content={comment} />
+                return <Comment key={comment} content={comment} />
             })}
         </div>
     </article>
